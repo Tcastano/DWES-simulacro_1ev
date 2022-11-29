@@ -16,5 +16,8 @@
    - Decodificarlo y mostrar la nota media de cada alumno por pantalla
 
 3. Clases
-   - Crear una clase Asignatura (nombre, horas, profesor)
-   - Un formulario que cree instancias de la clase asignatura
+   - Crear una clase Asignatura
+     - propiedades:nombre, horas, profesor
+     - métodos: constructor, getters,setters, toString, toArray, guardar
+   - Un formulario que recoja nombre, horas, profesor. Al enviar el formulario, se llama al fichero controlador.php.
+   - Controlador.php importa la clase sirve para crear instancias de la clase asignatura con los datos del formulario. Una vez creada la instancia, llamar al método "guardar" de la clase. Dicho método ha de convertir dicha instancia en un array(toArray), codificarlo en json y guardarlo en el fichero 3_datos.json.

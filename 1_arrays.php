@@ -7,15 +7,30 @@
  * Añadir por cada estudiante, una clave más "DWEC" con números aleatorios entre 1 y 10.
  * 
  */
-$notas=[];
- $alumnos=["hugo","marta","fabio","siro","mario"];
 
- $curso=["DWEC","DWES"];
+$alumnos = ["Juan", "Marta", "Menganito", "Fabio", "Jaime"];
 
- for ($i=0; $i <5 ; $i++) { 
-    $notas
- }
+//Ej: 
+//$notas = [
+//     "Juan"=>
+//     [
+//         "DWEC"=>5,
+//         "DWES"=>7
+//     ],
+//     "Marta"=>["DWEC"=>5,"DWES"=>7],
+//     "Menanito"=>["DWEC"=>5,"DWES"=>7],
+//]
 
- foreach ($alumnos as $key => $value) {
-    
- }
+
+$notas = [];
+
+foreach ($alumnos as  $al) {
+    $notas[$al] = ["DWES" => rand(1, 10)];
+}
+
+// print "<pre>" . print_r($notas, true) . "</pre>";
+
+foreach ($notas as $alumno => $asignaturas) {
+    $notas[$alumno]["DWEC"] = rand(1, 10);
+}
+print "<pre>" . print_r($notas, true) . "</pre>";
