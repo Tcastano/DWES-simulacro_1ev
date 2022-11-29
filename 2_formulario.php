@@ -27,6 +27,31 @@ if ($asignaturaselecionada!=null) {
 
 ?>
 
+<?php
+    global $arrayNotasFiltradas;
+    //Creacion de fichero JSON
+    $jsonEncoded = json_encode($arrayNotasFiltradas,JSON_UNESCAPED_UNICODE);
+    file_put_contents('./3_datos.json',$jsonEncoded);
+
+
+
+    //Nota media de cada alumno
+    $jsonAlumnos = file_get_contents('./3_datos.json');
+    $jsonAlumnosDecode = json_decode($jsonAlumnos, true, 512, JSON_UNESCAPED_UNICODE);
+
+    foreach ($jsonAlumnosDecode as $key => $value) 
+    {
+    global $suma;
+    foreach ($value as $llave => $nota) 
+        {
+        $suma += $nota;
+        }
+
+        echo("La nota media del alumno ".$key." es: " .$suma/2 ."<br>");
+        $suma = 0;
+    }
+    ?>
+
  <!DOCTYPE html>
  <html lang="en">
  <head>
