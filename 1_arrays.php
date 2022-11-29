@@ -8,7 +8,7 @@
  * 
  */
 
-$alumnos = ["Juan", "Marta", "Menganito", "Fabio", "Jaime"];
+$alumnos = ["Tizziano", "Hugo", "Siro", "Fabio", "Adan"];
 
 //Ej: 
 //$notas = [
@@ -33,4 +33,4 @@ foreach ($alumnos as  $al) {
 foreach ($notas as $alumno => $asignaturas) {
     $notas[$alumno]["DWEC"] = rand(1, 10);
 }
-print "<pre>" . print_r($notas, true) . "</pre>";
+//print "<pre>" . print_r($notas, true) . "</pre>";

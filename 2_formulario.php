@@ -1,5 +1,6 @@
 <?php
 
+require_once('1_arrays.php');
 /**
  * 
  * 2. Formularios
@@ -11,3 +12,51 @@
  * 
  * 
  */
+
+var_dump($_POST);
+$asignaturaselecionada=null;
+if (!empty($_POST)) {
+    $asignaturaselecionada=$_POST['Asignatura'];
+}
+$arrayNotasFiltradas = $notas;
+if ($asignaturaselecionada!=null) {
+    foreach ($notas as $key => $value) {
+        $arrayNotasFiltradas[$key] = [$asignaturaselecionada=>$value["$asignaturaselecionada"]];
+    }
+}
+
+?>
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+     <ol>
+    <?php
+    foreach ($arrayNotasFiltradas as $key => $value) {
+        echo "<li>$key</li>";
+        foreach ($value as $clave => $valor) {
+            echo "<ul>";
+            echo "<li>$clave: $valor</li>";
+            echo "</ul>";
+        }
+    }
+    ?>
+    </ol>
+
+    <form action="2_formulario.php" method="post">
+        <input type="radio" name="Asignatura" id="Servidor" value="DWES">
+                    <label for="Servidor">EntornoServidor</label><br>
+
+                    <input type="radio" name="Asignatura" id="Cliente" value="DWEC">
+                    <label for="Cliente">EntornoCliente</label><br>
+
+                    <input type="submit" value="Enviar">
+    </form>
+ </body>
+ </html>
